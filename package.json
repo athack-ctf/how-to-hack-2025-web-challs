@@ -1,0 +1,17 @@
+{
+  "name": "how-to-hack-2025-challs",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node app/app.js",
+    "dev": "nodemon app/app.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.1",
+    "express-basic-auth": "^1.2.1",
+    "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

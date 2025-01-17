@@ -1,0 +1,6 @@
+services:
+  hth-challs:
+    build: source
+    image: athack-ctf/how-to-hack-2025-web-challs:latest
+    ports:
+      - "2025:2025"

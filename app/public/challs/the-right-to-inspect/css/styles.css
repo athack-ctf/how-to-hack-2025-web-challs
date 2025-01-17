@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #956FB3;
+}
+
+
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+}
+
+#inspector-img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* Hint: Oh, we did move the flag to a place where robots usually go! */

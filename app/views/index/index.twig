@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To Hack - CTF Beginner Workshop</title>
+    <link rel="stylesheet" href="/index/css/styles.css">
+</head>
+<body>
+<header class="hero">
+    <img src="/index/images/hth-logo.jpg" alt="How To Hack Logo">
+</header>
+<main>
+    <h1>How To Hack 2025 - Challenges</h1>
+    <h2>Type: Stegano</h2>
+    <div class="container">
+        {% for chall in steganoChalls %}
+            <div class="card">
+                <h2>{{ chall.title }}</h2>
+                <p>{{ chall.description }}</p>
+                {% for file in chall.files %}
+                <a href="/challs/{{ file.location }}" class="link" target="_blank" download="{{ file.name }}">Download {{ file.name }}</a>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    <h2>Type: Web</h2>
+    <div class="container">
+        {% for chall in webChalls %}
+            <div class="card">
+                <h2>{{ chall.title }}</h2>
+                <p>{{ chall.description }}</p>
+                <a href="/challs/{{ chall.name }}" class="link" target="_blank">View Challenge</a>
+            </div>
+        {% endfor %}
+    </div>
+    <h2>Follow us for more</h2>
+    <div class="container">
+        <div class="card ad-athackctf">
+            <h2>AtHackCTF</h2>
+            <img src="https://quickchart.io/qr?text=https%3A%2F%2Fwww.instagram.com%2Fathackctf%2F&size=200&dark=4440A0&light=F5DC38">
+        </div>
+        <div class="card ad-ha">
+            <h2>Hexploit Alliance</h2>
+            <img src="https://quickchart.io/qr?text=https%3A%2F%2Fwww.instagram.com%2Fhexploitalliance%2F&size=200&dark=eed23b&light=000000">
+        </div>
+        <div class="card ad-tn">
+            <h2>TECHNATIONca</h2>
+            <img src="https://quickchart.io/qr?text=https%3A%2F%2Fwww.instagram.com%2Ftechnationca%2F&size=200&dark=000000&light=FFFFFF">
+        </div>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/challs/another-bad-authentication/css/styles.css">
+</head>
+<body>
+<div class="login-container">
+    <h1>Login</h1>
+    {% if is_auth %}
+        <p>Welcome back!
+            {% if is_admin %}
+                You are an admin! Here is your flag: <code>HOWTOHACK{c00kie_c4nn0t_be_u53d_thi5_w4y}<code>
+                    {% else %}
+                    Hello, Guest!
+            {% endif %}</p>
+        <form id="logout-form" method="POST" action="/app/another-bad-authentication/logout">
+            <button type="submit" name="logout" value="true">Logout</button>
+        </form>
+    {% else %}
+        <p>If you are the admin, you will get the flag.<br>
+            We also allow guest logins (username: <code>guest</code>, password: <code>secret</code>).</p>
+        <form id="login-form" method="POST" action="/app/another-bad-authentication/login">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    {% endif %}
+</div>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('error')) {
+        alert("Bad Credentials");
+        location.href = "../../another-bad-authentication"
+    }
+</script>
+</body>
+</html>

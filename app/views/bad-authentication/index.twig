@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/challs/bad-authentication/css/styles.css">
+</head>
+<body>
+<div class="login-container">
+    <h1>Login</h1>
+    <form id="login-form">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+<script>
+    function md5(string) {
+        return CryptoJS.MD5(string).toString(CryptoJS.enc.Hex);
+    }
+
+    function authenticate(username, password) {
+        if (username === "admin") {
+            const expectedHash = "f6fdffe48c908deb0f4c3bd36c032e72";
+            const hash = md5(password);
+            if (hash === expectedHash) {
+                return true
+            }
+        }
+        return false;
+    }
+
+    document.getElementById('login-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        const isAuth = authenticate(username, password);
+        if (isAuth === true) {
+            window.location.href = atob("L2NoY" + "Wxscy9iYWQtYXV0a" + " GVudGljY" + "XRpb24vZ2V0LWZsYWc=");
+        } else {
+            alert("Invalid username or password");
+        }
+    });
+</script>
+</body>
+</html>
